@@ -9,8 +9,9 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var showGreeting = true
-    @State private var cup = 6
-    @ScaledMetric(relativeTo: .body) var scaledPadding: CGFloat = 10
+    @State private var cup = 0
+    @ScaledMetric(relativeTo: .body)
+    var scaledPadding: CGFloat = 10
     var body: some View {
         
         VStack {
@@ -26,14 +27,13 @@ struct ContentView: View {
                 }
             }
             VStack {
-                       Stepper("Cups to drink per day  ", onIncrement: {
+                       Stepper("Cups to drink per day \(cup)  ", onIncrement: {
                            cup += 1
                        }, onDecrement: {
                            cup -= 1
                        })
 
-                Text("Your cups \(cup)")
-                    .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
+              
                 
                 Button("continue") {
                     /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/ /*@END_MENU_TOKEN@*/
